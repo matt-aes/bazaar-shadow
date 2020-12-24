@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imageservice-shadow
+  namespace: bazaar-shadow
+  labels:
+    app: imageapp-shadow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: imageapp-shadow
+  template:
+    metadata:
+      annotations:
+        getambassador.io/inject-traffic-agent: enabled
+      labels:
+        app: imageapp-shadow
+    spec:
+      containers:
+        - name: imageservice-shadow
+          image: docker.io/brucehorn/ambassador_service_preview_demo-imageservice:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8083
+              protocol: TCP
+---

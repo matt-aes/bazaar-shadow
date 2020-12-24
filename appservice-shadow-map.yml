@@ -1,0 +1,13 @@
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: appservice-shadow
+  namespace: bazaar-shadow
+spec:
+  host: aes-demo.com
+  prefix: /
+  service: appservice.bazaar-shadow:80
+  shadow: true
+  weight: 10
+---

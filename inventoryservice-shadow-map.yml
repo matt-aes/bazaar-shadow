@@ -1,0 +1,13 @@
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: inventoryservice-shadow
+  namespace: bazaar-shadow
+spec:
+  host: aes-demo.com
+  prefix: /inventory/
+  service: inventoryservice.bazaar-shadow:80
+  shadow: true
+  weight: 10
+---

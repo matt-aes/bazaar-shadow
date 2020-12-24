@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: specsservice-shadow
+  namespace: bazaar-shadow
+spec:
+  selector:
+    app: specsapp-shadow
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: http
+---

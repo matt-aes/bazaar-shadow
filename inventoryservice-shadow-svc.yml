@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventoryservice-shadow
+  namespace: bazaar-shadow
+spec:
+  selector:
+    app: inventoryapp-shadow
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: http
+---
